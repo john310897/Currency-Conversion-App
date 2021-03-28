@@ -5,7 +5,7 @@ const Home = () => {
 
     useEffect(()=>{
         fetchdata();
-    })
+    },[])
 
     const [currency,setcurrency]=useState([]);
     const [result,setresult]=useState(0);
@@ -14,6 +14,7 @@ const Home = () => {
     const fetchdata=async()=>{
         const result=await Axios.get('http://data.fixer.io/api/latest?access_key=7710d67e7af884c92e3dbaaa7abc1151');
         setcurrency(result.data.rates);
+        console.log(result.data.rates);
     }
 
     // accessing input
@@ -32,7 +33,9 @@ const Home = () => {
         }
         else{
             const num=(dc.current.value/sc.current.value)*input.current.value;
-            setresult(num);
+            // setresult(num);
+            const conversion_result=num+" "+dc.current.options[dc.current.selectedIndex].text;
+            setresult(conversion_result);
         }
     }
 
