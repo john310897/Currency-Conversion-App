@@ -24,7 +24,6 @@ const Home = () => {
     const input=useRef();
     const sc=useRef();
     const dc=useRef();
-    const cr=useRef();
     
     // conversion of currency
     const convert=()=>{
@@ -36,7 +35,6 @@ const Home = () => {
         }
         else{
             const num=(dc.current.value/sc.current.value)*input.current.value;
-            // setresult(num);
             const conversion_result=num+" "+dc.current.options[dc.current.selectedIndex].text;
             setresult(conversion_result);
         }
@@ -48,7 +46,7 @@ const Home = () => {
             <h2>Currency Coversion Application</h2>
         <div className='home_module'>
             <div className='result_box'>
-                <input type='text' className='result_field' ref={cr} value={result}/>
+                <input type='text' className='result_field' value={result} readOnly/>
             </div>
             <div className='currency_converter_box'>
                 <div className='input_box'>
