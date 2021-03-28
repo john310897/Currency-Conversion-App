@@ -14,7 +14,6 @@ const Home = () => {
     const fetchdata=async()=>{
         const result=await Axios.get('http://data.fixer.io/api/latest?access_key=7710d67e7af884c92e3dbaaa7abc1151');
         setcurrency(result.data.rates);
-        console.log(result.data.rates);
     }
 
     // accessing input
@@ -26,7 +25,7 @@ const Home = () => {
     // conversion of currency
     const convert=()=>{
         if(input.current.value===""){
-            alert('enter amount');
+            alert('please enter amount');
         }
         else if(sc.current.value==="" || dc.current.value===""){
             alert('unable to access the API, please check the network/try again');
@@ -49,7 +48,7 @@ const Home = () => {
             </div>
             <div className='currency_converter_box'>
                 <div className='input_box'>
-                    <input type='text' className='input_field' ref={input} placeholder='Enter amount'/>
+                    <input type='number' className='input_field' ref={input} placeholder='Enter amount'/>
                 </div>
                 <div className='source_cur'>
                     
