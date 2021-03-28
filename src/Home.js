@@ -12,8 +12,12 @@ const Home = () => {
 
     // fetching the data
     const fetchdata=async()=>{
+        try{
         const result=await Axios.get('http://data.fixer.io/api/latest?access_key=7710d67e7af884c92e3dbaaa7abc1151');
         setcurrency(result.data.rates);
+        }catch(err){
+            alert('Unable to access api/Please recheck the network');
+        }
     }
 
     // accessing input
